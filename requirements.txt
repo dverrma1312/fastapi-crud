@@ -1,0 +1,2 @@
+FastAPI[standard]
+SQlModelf
