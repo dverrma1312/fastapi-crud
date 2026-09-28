@@ -1,11 +1,10 @@
-
-from datetime import datetime, timedelta
+from typing import Any
 import time
 
-_cache: dict[str, dict] = {}
+_cache: dict[str, dict[str, Any]] = {}
 
 
-def get_cache(key: str) -> dict | None:
+def get_cache(key: str) -> Any | None:
     if key not in _cache:
         return None
     
@@ -16,12 +15,14 @@ def get_cache(key: str) -> dict | None:
     
     return entry["data"]
 
-def set_cache(key: str, data: dict, ttl: int) -> None:
+
+def set_cache(key: str, data: Any, ttl: int = 3600) -> None:
     _cache[key] = {
         "data": data,
         "timestamp": time.time(),
         "ttl": ttl,
     }
+
 
 def clear_cache() -> None:
     _cache.clear()

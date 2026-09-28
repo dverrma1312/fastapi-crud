@@ -1,2 +1,4 @@
-FastAPI[standard]
-SQlModelf
+fastapi[standard]
+sqlmodel
+httpx
+python-dotenv
